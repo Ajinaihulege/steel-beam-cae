@@ -1,0 +1,10 @@
+*.png binary
+*.vtu binary
+*.pvd text eol=lf
+*.inp text
+*.py text eol=lf
+*.ncti binary
+*.stp text
+*.zip binary
+*.docx binary
+*.xlsx binary
