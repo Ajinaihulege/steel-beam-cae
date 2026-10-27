@@ -73,11 +73,11 @@ doc.RunCommand("cmd_ncti_mesh_add_set", "Node_Set3", 'grp_ncti_display_model_bod
 #param2:材料名称 Q235B
 #param3:弹性模量 206000
 #param4:剪切模量 79000
-#param5:泊松比 0.25
+#param5:泊松比 0.30
 #param6:密度 7.85e-09
 #param7:热膨胀
 #param8:说明
-doc.RunCommand("cmd_ncti_mesh_add_mat", "Q235B", 206000.0, 79000, 0.25, 7.85e-09, None)
+doc.RunCommand("cmd_ncti_mesh_add_mat", "Q235B", 206000.0, 79000, 0.30, 7.85e-09, None)
 
 #section
 #param2:section名称 section1
