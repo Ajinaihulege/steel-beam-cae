@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PluginConfig>
+    <type>python</type>
+    <version>1.0.0.1</version>
+    <seq>0</seq>
+    <Dir>Plugins/BeamResultVerifier</Dir>
+    <Name>BeamResultVerifier</Name>
+    <BinName>PluginWrapperPlugin</BinName>
+    <ShowName>Beam VTU Result Verifier</ShowName>
+    <Introduction>Compare 15mm/10mm beam VTU data and generate a report ZIP.</Introduction>
+    <Author>Competition Team</Author>
+    <SubordinateUnits>Competition Team</SubordinateUnits>
+    <Email></Email>
+    <Group>Postprocessing</Group>
+    <Environment>
+        <EnvironmentInfo Name="PYTHONPATH" Value="%MainDir%Plugins/base;%PluginDir%"/>
+    </Environment>
+    <AppInfoList>
+        <AppInfo AppRoot="%PluginDir%/" AppPath="beam_verifier_adapter.py" MainWindowTitle="" MainWindowClass=""/>
+    </AppInfoList>
+    <APIImplementList>
+        <ApiInfo
+            ModuleFullName="__MODULE_FULL_NAME__"
+            APIName="__API_NAME__"
+            ImplementAPIName="commandFunction"
+            LogicCommand="beamResultVerify"
+            ImplementModule="PluginWrapperPlugin.PluginWrapper"
+            APIVersion="1.0.0.1"
+            AppType="PythonAdapter"
+            AppPath="beam_verifier_adapter.py"
+            HasUI="false"
+            APIParameterTemlate="filepath=%filepath%"
+            APIOutParameterTemlate="filepath=%projectId%/%taskId%/beam_validation_report.zip"
+            WorkingDir="%MainDir%temp/%projectId%/%taskId%/"/>
+    </APIImplementList>
+</PluginConfig>
