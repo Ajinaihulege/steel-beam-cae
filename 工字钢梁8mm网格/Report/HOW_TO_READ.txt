@@ -1,0 +1,4 @@
+1. Extract entire report ZIP to one folder.
+2. Open analysis_report.html in a web browser (keep SVG alongside).
+3. Check validation.json for raw metric values and cautions.
+4. VTU analysis cannot prove solver correctness, load, material or safety.

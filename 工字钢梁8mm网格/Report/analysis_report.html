@@ -1,0 +1,52 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BeamResultVerifier v3.0.3.1 | Validation Report</title>
+<style>
+*{box-sizing:border-box}body{background:#f4f7fa;color:#263d52;margin:0;
+font:15px/1.7 "Microsoft YaHei",Arial,sans-serif}
+main{max-width:1040px;margin:30px auto;background:white;padding:40px 48px;
+border:1px solid #dfe7ec;border-radius:12px}
+h1{font-size:26px;margin:4px 0 8px}h2{font-size:18px;margin:30px 0 12px;
+padding-bottom:8px;border-bottom:1px solid #e0e8ed}
+small,.muted{color:#5c7181}.eyebrow{font-size:12px;letter-spacing:.1em;
+font-weight:700;color:#527991}
+.kpis{display:flex;gap:14px;flex-wrap:wrap;margin:24px 0}
+.kpis div{border:1px solid #dbe5eb;border-radius:8px;padding:14px 17px;min-width:190px}
+.kpis b{display:block;font-size:23px;color:#245d79}
+table{border-collapse:collapse;width:100%;font-size:13px;overflow:hidden}
+th,td{padding:10px 12px;border-bottom:1px solid #e1e8ee;text-align:left;vertical-align:top}
+th{background:#f0f5f8}.scroll{overflow-x:auto}
+.warning{border-left:3px solid #d6a151;background:#fffaf0;padding:10px 16px}
+.warning li{padding:2px 0}
+.chart{width:100%;border:1px solid #edf2f4;border-radius:8px}
+@media print{body{background:white}main{border:0;margin:0;padding:10px}}
+</style></head><body><main>
+<div class="eyebrow">OPENCAE / BEAM VERIFICATION MODULE · V3.0.3.1</div>
+<h1>钢梁 VTU 自动验证报告</h1>
+<p class="muted">输入：ncti_vtu_subcase1.vtu · 算例数量：1 ·
+执行耗时：1.470 秒</p>
+<div class="kpis">
+<div><small>Number of cases</small><b>1</b></div>
+<div><small>Max |Uz| / first case</small>
+<b>3.0438</b></div>
+<div><small>Data checks</small><b>5</b></div>
+</div>
+<h2>Displacement overview</h2>
+<img class="chart" src="displacement_chart.svg" alt="Maximum vertical displacement by mesh"/>
+<p class="muted">Chart values use original result units. VTU does not guarantee mm unless separately documented.</p>
+<h2>数值汇总</h2><div class="scroll"><table><thead><tr><th>Case</th><th>Nodes</th><th>Elements</th><th>Max |U|</th><th>Max |Uz|</th><th>P95 |Uz|</th></tr></thead><tbody><tr><td>ncti_vtu_subcase1</td><td>75,246</td><td>222,292</td><td>3.0513</td><td>3.0438</td><td>2.9687</td></tr></tbody></table></div>
+<h2>网格敏感性</h2><div class="scroll"><p>单文件模式：没有第二个网格，无法进行网格差异比较。</p></div>
+<p class="muted">两组网格的位移变化较小，只能说明该指标具有初步稳定性，不能单凭此证明全部应力收敛。</p>
+<h2>应力字段摘要</h2><div class="scroll"><table>
+<thead><tr><th>Case</th><th>Stress field</th><th>Component 0 abs peak</th><th>Mises (only if reliable)</th></tr></thead>
+<tbody><tr><td>ncti_vtu_subcase1</td><td>StaticStress</td><td>65.30030</td><td>n/a</td></tr></tbody></table></div>
+<p class="muted">未经明确分量顺序证明，第一应力分量不是 von Mises。空白表示未进行该换算。</p>
+<h2>载荷比例关系（可选）</h2><p>未检测到至少三个同网格、不同载荷的明确工况，跳过载荷比例拟合。</p>
+<h2>自动检查结果</h2><div class="scroll"><table>
+<thead><tr><th>Check</th><th>Status</th><th>Meaning</th></tr></thead>
+<tbody><tr><td>VTU numerical structure</td><td>PASS</td><td>Each VTU has mesh topology, valid point coordinates and finite 3-D displacements.</td></tr><tr><td>Finite-element solution provenance</td><td>NOT_VERIFIED</td><td>VTU alone does not verify loads, materials, support DOFs or solver convergence.</td></tr><tr><td>Tetra mesh</td><td>PASS</td><td>All cells were identified as VTK tetrahedron (type 10).</td></tr><tr><td>Stress field</td><td>INFO</td><td>Stress components were extracted; physical meaning depends on their ordering.</td></tr><tr><td>Grid convergence</td><td>NOT_VERIFIED</td><td>Only one mesh was provided.</td></tr></tbody></table></div>
+<h2>理论参照（可选）</h2><p>未提供完整 beam_theory 参数，因此不自动推断几何尺寸、载荷和材料。</p>
+<h2>验证边界与后续建议</h2><div class="warning"><ul><li>VTU does not prove the input material, support or total force; review INP and solver log.</li><li>Two-mesh displacement agreement is preliminary stability, not proof of grid convergence.</li><li>The first StaticStress component is not automatically von Mises.</li><li>Stress peaks can be mesh sensitive near concentrated loads and sharp corners.</li></ul></div>
+<p class="muted">数据来源为既有求解结果；本程序不重新求解。完整原始数据、SHA-256、
+网格差异和各项检查状态见 validation.json、metrics.csv 和 comparison.csv。</p>
+</main></body></html>

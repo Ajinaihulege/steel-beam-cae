@@ -1,0 +1,30 @@
+{
+  "units": {
+    "length": "mm (assumed from teammate model; not encoded in VTU)",
+    "stress": "MPa (assumed from teammate model; verify INP)"
+  },
+  "cases": {
+    "15mm/求解/ncti_vtu/ncti_vtu_subcase1.vtu": {
+      "label": "15mm benchmark",
+      "mesh_size_mm": 15,
+      "load_N": 20000
+    },
+    "10mm/cal/ncti_vtu/ncti_vtu_subcase1.vtu": {
+      "label": "10mm benchmark",
+      "mesh_size_mm": 10,
+      "load_N": 20000
+    }
+  },
+  "validation": {
+    "displacement_change_limit_percent": 1.0
+  },
+  "beam_theory": {
+    "span_mm": 4000,
+    "load_N": 20000,
+    "young_modulus_MPa": 206000,
+    "width_mm": 200,
+    "height_mm": 200,
+    "web_mm": 8,
+    "flange_mm": 12
+  }
+}

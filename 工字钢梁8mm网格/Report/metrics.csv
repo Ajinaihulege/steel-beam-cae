@@ -1,0 +1,2 @@
+﻿Case,Source,Mesh size (mm),Points,Cells,Max displacement magnitude,Max |Uz|,Min Uz,Max Uz,P95 |Uz|,Stress comp0 abs peak,Input SHA-256
+ncti_vtu_subcase1,ncti_vtu_subcase1.vtu,,75246,222292,3.0512968869476933,3.04382894446021,-3.04382894446021,7.28088099022548e-05,2.968704971383844,65.3003049403729,01638647d22faf5e84c103f05792ee3f615cffb7c8e98ec08b1d36c72e20b823

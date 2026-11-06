@@ -18,20 +18,29 @@
 ## 目录结构
 
 ```text
+BeamResultVerifier/
+├─ BeamResultVerifier_Team_Source/   插件源代码
+├─ BeamResultVerifier_REGISTER/      插件注册文件
+└─ d340eb20bf9b2ac4204c1b9445b2d030_raw.mp4
+                                      插件使用视频
+
 工字钢梁15mm网格/
 ├─ 前处理/   CAE 模型、STEP、网格脚本和 INP
 ├─ 求解/     VTU/PVD 求解结果
-└─ 后处理/   位移、应力、主应力云图
+├─ 后处理/   位移、应力、主应力云图
+└─ Report/   BeamResultVerifier 插件验证结果
 
 工字钢梁10mm网格/
 ├─ 前处理/
 ├─ 求解/
-└─ 后处理/
+├─ 后处理/
+└─ Report/
 
 工字钢梁8mm网格/
 ├─ 前处理/
 ├─ 求解/
-└─ 后处理/
+├─ 后处理/
+└─ Report/
 ```
 
 ## 主要文件
@@ -42,6 +51,8 @@
 - `ncti.inp`：求解器输入文件
 - `ncti_vtu.pvd` / `ncti_vtu_subcase1.vtu`：后处理结果
 - `*.png`：结果云图
+- `Report/`：BeamResultVerifier 插件生成的验证结果，包括 HTML、CSV、JSON 和图表
+- `BeamResultVerifier/`：插件本体、注册文件和使用视频
 
 ## 网格收敛结果
 
@@ -62,9 +73,11 @@
 
 ## 打开方式
 
-- CAE 前处理：打开对应目录中的 `.ncti` 或 `.stp`
-- 后处理：打开 `ncti_vtu/ncti_vtu.pvd`
-- 求解器输入：查看 `ncti.inp`
+- CAE 前处理：打开对应网格目录中的 `前处理/` 下的 `.ncti` 或 `.stp`
+- 后处理：打开对应网格目录中的 `求解/ncti_vtu/ncti_vtu.pvd`
+- 求解器输入：查看对应网格目录中的 `前处理/ncti.inp`
+- 插件验证结果：打开对应网格目录中的 `Report/analysis_report.html`
+- 插件使用视频：打开 `BeamResultVerifier/d340eb20bf9b2ac4204c1b9445b2d030_raw.mp4`
 
 ## 说明
 

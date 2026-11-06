@@ -1,0 +1,152 @@
+{
+  "tool": "BeamResultVerifier",
+  "version": "3.0.3.1",
+  "input_file": "ncti_vtu_subcase1.vtu",
+  "num_cases": 1,
+  "units": {
+    "length": "not_encoded_in_vtu",
+    "stress": "not_encoded_in_vtu"
+  },
+  "cases": [
+    {
+      "source": "ncti_vtu_subcase1.vtu",
+      "points": 48120,
+      "cells": 141600,
+      "tetra_cells": 141600,
+      "all_tetra": true,
+      "available_point_arrays": [
+        {
+          "name": "StaticDisplacement",
+          "components": 3
+        },
+        {
+          "name": "StaticRotation",
+          "components": 3
+        },
+        {
+          "name": "StaticStress",
+          "components": 6
+        },
+        {
+          "name": "PrincipalStress",
+          "components": 5
+        }
+      ],
+      "displacement_array": "StaticDisplacement",
+      "bounds": {
+        "xmin": -2000.0,
+        "xmax": 2000.0,
+        "ymin": -100.0,
+        "ymax": 100.0,
+        "zmin": -100.0,
+        "zmax": 100.0
+      },
+      "max_displacement_magnitude": 3.0512690792378487,
+      "max_abs_vertical_displacement": 3.043901561847749,
+      "minimum_vertical_displacement": -3.043901561847749,
+      "maximum_vertical_displacement": 2.740025677657327e-05,
+      "p95_abs_vertical_displacement": 2.964937064718724,
+      "p99_displacement_magnitude": 2.996935176264343,
+      "near_zero_displacement_points": 21,
+      "max_displacement_point_id_zero_based": 1476,
+      "max_abs_vertical_point_id_zero_based": 1476,
+      "max_abs_vertical_point_xyz": [
+        0.0,
+        100.0,
+        88.0
+      ],
+      "stress": {
+        "array": "StaticStress",
+        "components": 6,
+        "component_stats": [
+          {
+            "index": 0,
+            "minimum": -59.79159042059784,
+            "maximum": 44.78641599294564,
+            "maximum_absolute": 59.79159042059784
+          },
+          {
+            "index": 1,
+            "minimum": -13.86701868892297,
+            "maximum": 22.03794230970796,
+            "maximum_absolute": 22.03794230970796
+          },
+          {
+            "index": 2,
+            "minimum": -65.33172557210709,
+            "maximum": 4.467411058397269,
+            "maximum_absolute": 65.33172557210709
+          },
+          {
+            "index": 3,
+            "minimum": -8.176789148871583,
+            "maximum": 5.212271514392887,
+            "maximum_absolute": 8.176789148871583
+          },
+          {
+            "index": 4,
+            "minimum": -7.194407027975137,
+            "maximum": 7.372079633007189,
+            "maximum_absolute": 7.372079633007189
+          },
+          {
+            "index": 5,
+            "minimum": -18.5992683778733,
+            "maximum": 15.58080491418812,
+            "maximum_absolute": 18.5992683778733
+          }
+        ],
+        "note": "Component indices are unlabeled; do not call component 0 von Mises."
+      },
+      "mises_scalar": null,
+      "sha256": "1e49492ece0330df78f4f665e36ea5784cdfd28d2f7bd795d2e1362cf7b99410",
+      "label": "ncti_vtu_subcase1",
+      "mesh_size_mm": null,
+      "load_N": null
+    }
+  ],
+  "mesh_differences": [],
+  "checks": [
+    {
+      "check": "VTU numerical structure",
+      "status": "PASS",
+      "note": "Each VTU has mesh topology, valid point coordinates and finite 3-D displacements."
+    },
+    {
+      "check": "Finite-element solution provenance",
+      "status": "NOT_VERIFIED",
+      "note": "VTU alone does not verify loads, materials, support DOFs or solver convergence."
+    },
+    {
+      "check": "Tetra mesh",
+      "status": "PASS",
+      "note": "All cells were identified as VTK tetrahedron (type 10)."
+    },
+    {
+      "check": "Stress field",
+      "status": "INFO",
+      "note": "Stress components were extracted; physical meaning depends on their ordering."
+    },
+    {
+      "check": "Grid convergence",
+      "status": "NOT_VERIFIED",
+      "note": "Only one mesh was provided."
+    }
+  ],
+  "ideal_beam_reference": null,
+  "load_proportionality": null,
+  "warnings": [
+    "VTU does not prove the input material, support or total force; review INP and solver log.",
+    "Two-mesh displacement agreement is preliminary stability, not proof of grid convergence.",
+    "The first StaticStress component is not automatically von Mises.",
+    "Stress peaks can be mesh sensitive near concentrated loads and sharp corners."
+  ],
+  "metadata": {
+    "metric_definitions": {
+      "max_displacement_magnitude": "maximum norm of nodal U vector",
+      "max_abs_vertical_displacement": "maximum abs of nodal U_z; assumes Z vertical",
+      "stress_component0": "first component only; not von Mises unless labeled as such"
+    }
+  },
+  "elapsed_seconds": 0.852
+}
