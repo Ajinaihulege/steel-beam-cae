@@ -1,2 +1,0 @@
-# Python >=3.11. Core script requires no pip packages.
-# On OpenCAEHub the open_cae_plugin module must be provided by platform.

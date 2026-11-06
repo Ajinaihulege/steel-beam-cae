@@ -1,2 +1,0 @@
-# Python 3.11+ (OpenCAEHub 2.0.14 runtime: Python 3.11)
-# No third-party packages. Platform provides 'open_cae_plugin'.
