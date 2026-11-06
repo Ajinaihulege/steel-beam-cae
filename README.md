@@ -54,6 +54,37 @@ BeamResultVerifier/
 - `Report/`：BeamResultVerifier 插件生成的验证结果，包括 HTML、CSV、JSON 和图表
 - `BeamResultVerifier/`：插件本体、注册文件和使用视频
 
+## BeamResultVerifier 插件说明
+
+`BeamResultVerifier` 是项目的后处理结果验证插件，用于读取求解器导出的 VTU 文件并生成便于检查和归档的结果报告。它不执行有限元求解，也不修改模型或网格。
+
+### 主要功能
+
+- 读取单个 ASCII 格式的 VTU，或读取包含多个 VTU 的 ZIP 文件。
+- 检查 VTU 是否可正常解析，统计节点数、单元数和字段信息。
+- 统计位移幅值、竖向位移、应力分量等结果。
+- 对多个网格算例生成对比结果，辅助判断网格变化对结果的影响。
+- 生成 `analysis_report.html`、`metrics.csv`、`comparison.csv`、`validation.json`、`displacement_chart.svg` 和说明文件。
+- 在炎核平台上以 `BeamResultVerifierCommonTest` 后处理 API 使用，输入和输出均为资源型 `filepath`。
+
+### 输入与输出
+
+| 项目 | 内容 |
+|---|---|
+| 输入 | ASCII 单 Piece VTU，或包含 1–30 个 VTU 的 ZIP |
+| 输出 | `beam_validation_report.zip` |
+| 报告内容 | HTML、CSV、JSON、SVG 和读取说明 |
+| 平台 API | `CommonAPI.Postprocessing.BeamResultVerifier` |
+
+当前仓库三个网格目录中的 `Report/` 都是该插件对对应 `ncti_vtu_subcase1.vtu` 运行后生成的验证结果。
+
+### 使用边界
+
+- 插件要求 VTU 为 ASCII 格式，且一个文件只包含一个 Piece；binary、appended 或多 Piece VTU 需要先在 ParaView 中转换或合并。
+- 插件能够检查 VTU 数据结构和结果统计，但不能单独证明材料参数、荷载大小、边界条件、单位或求解器设置是否正确。
+- 结果报告不能替代严格的网格收敛分析和工程安全判断。
+- 应力第一分量不一定是 von Mises 应力；只有在明确应力分量顺序后，才能进行相应的应力组合和解释。
+
 ## 网格收敛结果
 
 | 网格尺寸 | 最大竖向位移 | 跨中下翼缘 Sxx | 局部最大 Mises | 节点数 / 单元数 |
